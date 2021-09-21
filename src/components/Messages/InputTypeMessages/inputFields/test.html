@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/vendor/intl-tel-input/build/css/intlTelInput.css" />
+
+<form id="contactForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Phone number</label>
+        <div class="col-xs-5">
+            <input type="tel" class="form-control" name="phoneNumber" />
+        </div>
+    </div>
+</form>
+
+<script src="/vendor/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<script>
+document.querySelector(document).ready(function() {
+    document.querySelector('#contactForm')
+        .querySelector('[name="phoneNumber"]')
+            .intlTelInput({
+                utilsScript: '/vendor/intl-tel-input/lib/libphonenumber/build/utils.js',
+                autoPlaceholder: true,
+                preferredCountries: ['fr', 'us', 'gb']
+            });
+
+    document.querySelector('#contactForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                phoneNumber: {
+                    validators: {
+                        callback: {
+                            message: 'The phone number is not valid',
+                            callback: function(value, validator, $field) {
+                                return value === '' || $field.intlTelInput('isValidNumber');
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        // Revalidate the number when changing the country
+        .addEventListener('click', '.country-list', function() {
+            document.querySelector('#contactForm').formValidation('revalidateField', 'phoneNumber');
+        });
+});
+</script>

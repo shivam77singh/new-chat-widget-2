@@ -1,0 +1,160 @@
+.sc-message {
+  padding: 15px 25px;
+  margin: auto;
+  display: flex;
+  /* border: 1px solid black; */
+}
+
+.sc-message--content {
+  width: 100%;
+  display: flex;
+  /* border: 1px solid rgb(185, 0, 0); */
+  position: relative;
+}
+
+.sc-message--content.sent {
+  justify-content: flex-end;
+}
+
+.sc-message--content.sent .sc-message--avatar {
+  display: none;
+}
+
+.sc-message--avatar {
+  background-image: var(--brand-logo);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  align-self: flex-end;
+  z-index: 2;
+  position: absolute;
+  bottom: -7px;
+  left: -11px;
+}
+
+.sc-message--text {
+  padding: 10px 15px;
+  border-radius: 8px 8px 8px 0;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  -webkit-font-smoothing: subpixel-antialiased;
+  word-wrap: break-word;
+  /* border: 1px solid black; */
+}
+.sc-message--content.sent .sc-message--text {
+  color: white;
+  background-color: var(--header-color);
+  word-wrap: break-word;
+  padding: 10px 15px;
+  border-radius: 8px 8px 0 8px;
+}
+
+.sc-message--content.received .sc-message--text {
+  color: #263238;
+  background: var(--bubble-color);
+  margin-right: 30px;
+}
+
+.sc-message--emoji {
+  font-size: 40px;
+}
+
+.sc-message--file {
+  background: white;
+  border: solid 1px #cccdd1;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: flex;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sc-message--file p {
+  margin: 0px 0px 0px 10px;
+  color: rgba(86, 88, 103, 0.6);
+}
+
+.sc-message--file .sc-user-input--file-icon:hover path {
+  fill: rgba(86, 88, 103, 0.3);
+}
+
+/* <<<<<=============================Styling the carousel========================>>>>>>>>>>> */
+
+.sc-message--carousel {
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  padding: 2px;
+}
+.sc-message--carouselitem {
+  /* background-color: rgb(240, 240, 240); */
+  box-shadow: -2px 20px 20px rgb(216, 216, 216);
+
+  margin-right: 30px;
+  /* padding: 10px; */
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
+}
+.sc-message--carouselitem > img {
+  height: 170px;
+  width: 190px;
+  /* margin: auto; */
+  border-radius: 0 0 5px 5px;
+  margin: 0px 25px;
+  /* border: 1px solid black; */
+}
+.sc-message--carouselinfo {
+  display: flex;
+  flex-direction: column;
+}
+.sc-message--carouselinfo > p {
+  text-align: center;
+  margin: 3px;
+  font-size: 12px;
+}
+.sc-message--carouselinfo > button {
+  border: none;
+  font-size: 14px;
+  padding: 10px;
+  height: 42px;
+  cursor: pointer;
+}
+.sc-message--carouselinfo :nth-child(4) {
+  background-color: white;
+}
+.sc-message--carouselinfo :nth-child(3) {
+  color: white;
+  background-color: var(--header-color);
+  margin-top: 5px;
+}
+.sc-message--carouselinfo :nth-child(2) {
+  height: 40px;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--header-color);
+  font-size: 38px;
+  z-index: 2;
+  top: 40%;
+  box-shadow: 5px -1px 10px rgb(209, 209, 209);
+}
+.carousel-control-prev-icon {
+  left: 6px;
+}
+.carousel-control-next-icon {
+  right: 6px;
+}

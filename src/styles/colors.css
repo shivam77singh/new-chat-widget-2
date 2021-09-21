@@ -1,0 +1,13 @@
+:root {
+  --header-color: #150e5b;
+  --primary-color: #150e5b;
+  --secondary-color: #312b6e;
+  --bubble-color: #f7f5fb;
+  --bubble-border: rgba(0, 0, 0, 0.08);
+  --brand-logo: url("./.././assets/chat-icon.svg");
+}
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+  /* font-weight: 300; */
+}

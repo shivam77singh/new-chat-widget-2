@@ -1,0 +1,550 @@
+@import url("./colors.css");
+
+.sc-message {
+  padding: 15px 25px;
+  margin: auto;
+  display: flex;
+  /* margin-bottom: 20px; */
+}
+
+::placeholder {
+  color: rgb(185, 185, 185);
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(185, 185, 185);
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: rgb(185, 185, 185);
+}
+
+.sc-message--content {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.sc-message--content.sent {
+  justify-content: flex-end;
+}
+
+.sc-message--content.sent .sc-message--avatar {
+  display: none;
+}
+
+.sc-message--avatar {
+  background-image: var(--brand-logo);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 50%;
+  align-self: flex-end;
+  z-index: 2;
+  position: absolute;
+  bottom: -7px;
+  left: -11px;
+}
+
+.sc-message--text {
+  padding: 10px 15px;
+  border-radius: 8px 8px 8px 0;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  -webkit-font-smoothing: subpixel-antialiased;
+  word-wrap: break-word;
+}
+.sc-message--quickreply {
+  display: flex;
+  flex-direction: column;
+  /* <<<<===sent===>> */
+  /* align-items: flex-end; */
+}
+.sc-message--options {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  /* <<<<===sent===>> */
+  /* justify-content: flex-end; */
+}
+.sc-message--option {
+  border: 1px solid var(--primary-color);
+  padding: 7px 15px;
+  margin: 3px 2px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+.sc-message--option:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  color: white;
+}
+
+.sc-message--content.sent .sc-message--text {
+  color: white;
+  background-color: var(--header-color);
+  word-wrap: break-word;
+  padding: 10px 15px;
+}
+
+.sc-message--content.received .sc-message--text {
+  color: #263238;
+  background: var(--bubble-color);
+  background: var(--bubble-color);
+  margin-right: 30px;
+}
+
+.sc-message--emoji {
+  font-size: 40px;
+}
+
+.sc-message--file {
+  background: white;
+  border: solid 1px #cccdd1;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: flex;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sc-message--file p {
+  margin: 0px 0px 0px 10px;
+  color: rgba(86, 88, 103, 0.6);
+}
+
+.sc-message--file .sc-user-input--file-icon:hover path {
+  fill: rgba(86, 88, 103, 0.3);
+}
+
+/* <<<<<=============================Styling the carousel========================>>>>>>>>>>> */
+
+.sc-message--carousel {
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  padding: 2px;
+}
+.sc-message--carouselitem {
+  /* background-color: rgb(240, 240, 240); */
+  box-shadow: -2px 2px 27px -4px rgb(216 216 216);
+
+  margin: 10px;
+  /* padding: 10px; */
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
+}
+.sc-message--carouselitem > img {
+  height: 170px;
+  width: 190px;
+  /* margin: auto; */
+  border-radius: 0 0 5px 5px;
+  margin: 0px 25px;
+  padding: 0 8px;
+  /* border: 1px solid black; */
+}
+.sc-message--carouselinfo {
+  display: flex;
+  flex-direction: column;
+}
+.sc-message--carouselinfo > p {
+  text-align: center;
+  margin: 3px;
+  font-size: 12px;
+  color: rgb(100, 100, 100);
+}
+.sc-message--carouselinfo > h5 {
+  margin: 0;
+  padding: 5px 10px;
+  /* border: 1px solid black; */
+  text-align: center;
+  font-size: 14px;
+}
+.sc-message--carouselinfo > button {
+  border: none;
+  font-size: 14px;
+  padding: 10px;
+  height: 42px;
+  cursor: pointer;
+  /* border: 1px solid black; */
+}
+.sc-message--carouselinfo :nth-child(4) {
+  background-color: white;
+}
+.sc-message--carouselinfo :nth-child(3) {
+  color: white;
+  background-color: var(--primary-color);
+  margin-top: 5px;
+}
+.sc-message--carouselinfo :nth-child(2) {
+  height: 40px;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-size: 38px;
+  z-index: 2;
+  top: 40%;
+  box-shadow: 5px -1px 10px rgb(209, 209, 209);
+}
+.carousel-control-prev-icon {
+  left: 6px;
+}
+.carousel-control-next-icon {
+  right: 6px;
+}
+/* <<<<<=============================Styling the input date========================>>>>>>>>>>> */
+
+.sc-message--select-date {
+  position: absolute;
+  left: 20px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.sc-message--select-date:hover {
+  transform: scale(1.2);
+}
+
+/* <<<<<=============================Styling the calendar========================>>>>>>>>>>> */
+.sc-message--calendar {
+  position: absolute;
+  z-index: 2;
+  top: 60px;
+  left: -17px;
+  right: -39px;
+  /* box-shadow: 3px 3px 2px rgb(116, 116, 116); */
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid black; */
+}
+.sc-message--calendar-date {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  color: white;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.react-calendar__navigation__next2-button,
+.react-calendar__navigation__prev2-button {
+  display: none;
+}
+.react-calendar__tile {
+  border-radius: 50% !important;
+  /* color: #150e5b !important; */
+}
+.react-calendar__tile--now {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+.react-calendar__tile:hover {
+  background-color: #635cb6 !important;
+  color: white;
+}
+.react-calendar__month-view__weekdays__weekday {
+  font-size: 11px;
+  /* padding: 8px !important; */
+  outline: none;
+}
+.react-calendar__month-view__weekdays__weekday {
+  padding: 20px;
+}
+.react-calendar__navigation__label__labelText {
+  font-size: 15px;
+}
+/* <<<<<=============================Styling the input fields========================>>>>>>>>>>> */
+
+.sc-message--input {
+  /* width: 350px; */
+}
+.sc-message--inputform {
+  display: flex;
+  position: relative;
+  height: 35px;
+  border: 1px solid rgb(218, 218, 218);
+  margin-top: 5px;
+  border-radius: 7px;
+  flex-direction: column;
+}
+.sc-message--inputform > input,
+.sc-message--inputform > textarea {
+  padding: 8px;
+  border: none;
+  padding-left: 30px;
+  border-radius: 7px;
+  height: 100%;
+}
+.sc-message--inputform > input:focus,
+.sc-message--inputform > textarea:focus {
+  outline: none;
+}
+
+.sc-message--error {
+  /* border: 1px solid black; */
+  margin: 0;
+  margin-top: 3px;
+  font-size: 13px;
+  color: red;
+}
+
+/* <<<<<=============================Styling the form========================>>>>>>>>>>> */
+.sc-message--form-container {
+  /* border: 2px solid black; */
+  padding: 20px 15px;
+  border-radius: 8px 8px 8px 0;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  -webkit-font-smoothing: subpixel-antialiased;
+  word-wrap: break-word;
+  margin-right: 30px;
+  background: var(--bubble-color);
+  /* overflow-x: hidden; */
+  width: 100%;
+}
+.sc-message--form-container > h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+.sc-message--form {
+  /* background-color: blueviolet; */
+  display: flex;
+  flex-direction: column;
+}
+.sc-message--inputavatar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 17px;
+  margin: 0 8px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  /* background-color: blueviolet; */
+}
+.sc-message--inputbtn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-color);
+  color: white;
+  width: 37px;
+  height: 100%;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+.sc-message--form-input {
+  border: none;
+  font-size: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: none;
+}
+.sc-message--form-input > input,
+.sc-message--form-input > select {
+  padding: 8px;
+  height: 100%;
+  border: none;
+  padding-left: 30px;
+  border-radius: 7px;
+  font-size: 14px;
+  border: 1px solid rgb(218, 218, 218);
+}
+.sc-message--form-input > input:focus,
+.sc-message--form-input > select:focus,
+textarea:focus {
+  outline: none;
+}
+.message-form--grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.sc-message--form-fields {
+  /* border: 1px solid rgb(0, 0, 0); */
+  /* display: grid;
+  grid-template-columns: auto auto; */
+  /* width: 100%; */
+}
+.sc-message--form-subfield {
+  /* background-color: rgb(216, 216, 216); */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  justify-content: center;
+  /* border: 1px solid black; */
+  padding: 5px 0;
+  margin: 0;
+  width: 100%;
+}
+.sc-message--form-subfield > p {
+  margin: 5px 0;
+}
+
+.two-column--grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.sc-message--form-input:focus {
+  outline: none;
+}
+.sc-message--form-dropdown {
+  /* border: 1px solid black; */
+  position: absolute;
+  left: 0;
+  top: 42px;
+  right: 0;
+  background-color: white;
+  z-index: 4;
+  box-shadow: 3px 3px 3px rgb(173, 173, 173);
+  border-radius: 8px;
+}
+.sc-message--form-dropdown > p {
+  background-color: rgb(255, 255, 255);
+  padding: 10px 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0;
+}
+.sc-message--form-dropdown > p:hover {
+  background-color: rgb(238, 238, 238);
+}
+.sc-message--form-btn {
+  /* border: 2px solid black; */
+  display: flex;
+  padding: 10px 0;
+}
+.sc-message--form-btn > button {
+  border: none;
+  /* background-color: blueviolet; */
+  padding: 8px 20px 8px 20px;
+  border-radius: 15px;
+  margin-right: 10px;
+  background: none;
+  background-color: white;
+  border: 1px solid rgb(163, 163, 163);
+  cursor: pointer;
+}
+.sc-message--form-btn > button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+}
+.sc-message--form-container > h4 {
+  padding: 0;
+  margin: 0;
+  margin: 10px 0;
+}
+
+.sc-message--form-btn {
+  /* border: 1px solid black; */
+  position: relative;
+}
+.sc-message--btn-icon {
+  position: absolute;
+  color: white;
+  top: 17px;
+  left: 10px;
+  font-size: 18px;
+}
+.sc-message--form-btn > button[type="submit"] {
+  padding-left: 30px;
+}
+/* <<<<<<<<<<=====================List Items Styling=================>>>>>>>>>>>>> */
+.sc-message--list-items {
+  margin-right: 30px;
+  width: 100%;
+  border-radius: 12px 12px 12px 0;
+  border: 1px solid rgb(224, 224, 224);
+  font-size: 14px;
+  overflow: hidden;
+}
+.sc-message--list-text {
+  /* margin: 5px 0; */
+  /* margin-top: 5px; */
+  padding: 12px 16px;
+  border-bottom: 1px solid rgb(224, 224, 224);
+  background: var(--bubble-color);
+}
+.sc-message--list {
+  /* padding: 12px 16px; */
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+
+  /* border-radius: 7px; */
+}
+.sc-message--item {
+  list-style: none;
+  /* border: 1px solid black; */
+  padding: 8px 0;
+  padding-left: 16px;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+.sc-message--item:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+/* <<<<<<<<<<=====================styling the phone input=================>>>>>>>>>>>>> */
+input[type="tel"] {
+  width: 100%;
+  height: 100%;
+  position: unset;
+  /* border: 1px solid rgb(218, 218, 218); */
+  border: none;
+  border-radius: 7px;
+}
+input[type="tel"]:focus {
+  outline: none;
+}
+.intl-tel-input {
+  height: 100%;
+}
+.intl-tel-input .country-list {
+  /* right: 0; */
+  top: 35px;
+  left: 0;
+}
+.country-list {
+  right: 0;
+  overflow-x: hidden;
+}
+
+.sc-message--content.received .sc-message--text,
+.sc-message--form-container,
+.sc-message--text,
+.sc-message--list-items {
+  border: 1px solid var(--bubble-border);
+  border-radius: 12px;
+}
+@media only screen and (max-width: 470px) {
+  .sc-message--content.received .sc-message--text,
+  .sc-message--form-container,
+  .sc-message--text,
+  .sc-message--list-items {
+    margin-right: 20px;
+  }
+}

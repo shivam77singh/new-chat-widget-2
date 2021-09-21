@@ -1,0 +1,99 @@
+.sc-header {
+  background: var(--header-color);
+  height: 100px;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
+  color: white;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  /* border: 2px solid black; */
+  align-items: center;
+}
+
+.sc-header--img {
+  border-radius: 50%;
+  align-self: center;
+  padding: 3px;
+  border: 3px solid white;
+}
+
+.sc-header--team-name {
+  align-self: center;
+  padding: 10px;
+  flex: 1;
+  user-select: none;
+  border-radius: 5px;
+}
+
+.sc-header--close-button:hover {
+  transform: rotate(180deg);
+}
+
+.sc-header--menu {
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+.sc-header--menu-icon,
+.sc-header--close-button {
+  height: 27px;
+  cursor: pointer;
+  /* background-color: greenyellow; */
+  padding: 10px 0px;
+  width: 27px;
+}
+.sc-header--close-button {
+  margin-left: 10px;
+  /* background-color: gray; */
+  /* width: 30px;
+  height: 30px;
+  padding: 2px;
+  transition: all 0.3s ease; */
+}
+
+.sc-header-menu-links {
+  position: absolute;
+  top: 42px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  right: 45px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px rgb(139, 139, 139);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+.sc-header--menu-link {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  width: 120px;
+  height: 50%;
+  color: rgb(87, 87, 87);
+  cursor: pointer;
+  padding: 0 8px;
+  /* border: 1px solid black; */
+}
+.sc-header--menu-link > p {
+  margin-left: 5px;
+  font-size: 13px;
+}
+.sc-header--menu-link-icon {
+  font-size: 20px;
+}
+.sc-header--menu-link:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+@media (max-width: 450px) {
+  .sc-header {
+    border-radius: 0px;
+  }
+}
